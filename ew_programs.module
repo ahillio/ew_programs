@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the EW Programs feature.
+ */
+
+include_once 'ew_programs.features.inc';
