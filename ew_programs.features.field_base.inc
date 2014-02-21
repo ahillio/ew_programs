@@ -173,32 +173,47 @@ function ew_programs_field_default_field_bases() {
     'type' => 'registration',
   );
 
-  // Exported field_base: 'field_t_shirt_size'
-  $field_bases['field_t_shirt_size'] = array(
+  // Exported field_base: 'field_registered_kids'
+  $field_bases['field_registered_kids'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_t_shirt_size',
-    'foreign keys' => array(),
+    'field_name' => 'field_registered_kids',
+    'foreign keys' => array(
+      'redhen_contact' => array(
+        'columns' => array(
+          'target_id' => 'contact_id',
+        ),
+        'table' => 'redhen_contact',
+      ),
+    ),
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'target_id' => array(
+        0 => 'target_id',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
+    'module' => 'entityreference',
     'settings' => array(
-      'allowed_values' => array(
-        'small' => 'Small',
-        'medium' => 'Medium',
-        'large' => 'Large',
-        'extra-large' => 'Extra Large',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'kid' => 'kid',
+        ),
       ),
-      'allowed_values_function' => '',
+      'target_type' => 'redhen_contact',
     ),
     'translatable' => 0,
-    'type' => 'list_text',
+    'type' => 'entityreference',
   );
 
   return $field_bases;

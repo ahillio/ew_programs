@@ -298,33 +298,38 @@ function ew_programs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'registration-summer_camp-field_t_shirt_size'
-  $field_instances['registration-summer_camp-field_t_shirt_size'] = array(
-    'bundle' => 'summer_camp',
+  // Exported field_instance: 'registration-school_year_program-field_registered_kids'
+  $field_instances['registration-school_year_program-field_registered_kids'] = array(
+    'bundle' => 'school_year_program',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 0,
       ),
     ),
     'entity_type' => 'registration',
-    'field_name' => 'field_t_shirt_size',
-    'label' => 'T-Shirt Size',
-    'required' => 0,
+    'field_name' => 'field_registered_kids',
+    'label' => 'Kids',
+    'required' => FALSE,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
       'weight' => 1,
     ),
   );
@@ -334,8 +339,8 @@ function ew_programs_field_default_field_instances() {
   t('Body');
   t('Gallery');
   t('Gallery Image');
+  t('Kids');
   t('Register');
-  t('T-Shirt Size');
   t('Type of Program');
 
   return $field_instances;
